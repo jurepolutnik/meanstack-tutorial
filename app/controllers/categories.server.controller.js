@@ -85,7 +85,7 @@ exports.list = function(req, res) {
 
 exports.categoryById = function (req, res, next, id){
   if (!mongoose.Types.ObjectId.isValid(id)){
-    return res. status(400).send({
+    return res.status(400).send({
       message: 'Category is invalid'
     });
   }
@@ -93,7 +93,7 @@ exports.categoryById = function (req, res, next, id){
   Category.findById(id).exec(function(err, category){
     if (err) return next(err);
     if (!category){
-      return res.statu(404).send({
+      return res.status(404).send({
         message: 'Category not found'
       });
     }
